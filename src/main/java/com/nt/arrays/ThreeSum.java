@@ -74,56 +74,51 @@ public class ThreeSum {
         return result;
     }
 
+    // 方法三 双指针发
     public List<List<Integer>> threeSum3(int[] nums) {
-
-        int n = nums.length;
-        List<List<Integer>> result = Lists.newArrayList();
-
-
-        // 0.先对数组排序
+        int length = nums.length;
+        List<List<Integer>> list = Lists.newArrayList();
+        // 0. 先对数组排序
         Arrays.sort(nums);
-
-        // 1. 遍历每一个元素,作为当前三元组中最小的那个
-        for (int i = 0; i < n; i++) {
-
-            // 1.1 如果当前数已经大于0 直接退出  循环
+        // 1.遍历每一个元素 作为当前三元组中最小的的那个
+        for (int i = 0; i < length; i++) {
+            // 1.1 如果当前数已经大于0 直接退出循环
             if (nums[i] > 0) {
                 break;
             }
-            // 1.2 如果当前数据已经出现过,直接跳过
+            // 1.2 如果当前数据已经出现过 直接跳过
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            // 1.3 常规情况,以当前数做最小数,定义左右指针
-            int lp = i + 1;
-            int rp = n - 1;
-            // 只要左右指针不重叠,就继续移动指针
 
+            // 1.3 常规情况 以当前数量最小数 定义左右指针
+            int lp = i + 1;
+            int rp = length - 1;
+            // 只要左右指针不重叠 就继续移动指针
             while (lp < rp) {
                 int sum = nums[i] + nums[lp] + nums[rp];
-                // 1.3.1 判断sum ,与0做大小对比
+                // 判读sum 与0做大小对比
                 if (sum == 0) {
-                    result.add(Arrays.asList(nums[i], nums[lp], nums[rp]));
+                    list.add(Arrays.asList(nums[i], nums[lp], nums[rp]));
                     lp++;
                     rp--;
-                    // 如果移动之后的元素相同，直接跳过
-                    while (lp < rp && nums[lp] == nums[lp - 1]) {
+                    // 如果移动之后的元素相同 直接跳过
+                    while (lp < rp && nums[lp] == nums[lp + 1]) {
                         lp++;
                     }
-                    // 如果移动之后的元素相同，直接跳过
-                    while (lp < rp && nums[rp + 1] == nums[rp]) {
-                        rp++;
+                    while (lp < rp && nums[rp] == nums[rp - 1]) {
+                        rp--;
                     }
+                    // 1.3.2小于0 较小的数增大 左指针右移
                 } else if (sum < 0) {
-                    // 1.3.2 小于0 较小的数增加 左指针右移
                     lp++;
                 } else {
-                    // 1.3.3 大于0 较大的数减少 右指针左移动
                     rp--;
                 }
             }
+
         }
-        return result;
+        return list;
     }
 
     public static void main(String[] args) {
