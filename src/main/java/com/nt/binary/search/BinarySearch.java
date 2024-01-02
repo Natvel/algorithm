@@ -55,7 +55,7 @@ public class BinarySearch {
             return -1;
         }
         // 计算中间位置
-        int mid = (formIndex + toIndex) / 2;
+         int mid = (formIndex + toIndex) / 2;
 
         // 判断中间位置和key的大小关系,更改搜索范围,递归调用
         if (a[mid] < key) {

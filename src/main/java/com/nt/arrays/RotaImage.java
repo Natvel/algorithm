@@ -5,24 +5,26 @@ package com.nt.arrays;
  * @date : 2023/6/27
  */
 public class RotaImage {
-    // 方法一：数学方法(矩阵准换,在翻转每一行)
-    public void rotate(int[][] matrix) {
+    // 方法一 数学方法 矩阵转置 再翻转每一行
+    public void rotate(int[][] matrix){
 
-        int length = matrix.length;
+        int n = matrix.length;
+
         // 1. 转置矩阵
-        for (int i = 0; i < length; i++) {
-            for (int j = i; j < length; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
                 matrix[j][i] = temp;
             }
         }
-        // 2. 翻转每一行
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < length / 2; j++) {
+
+        // 2.翻转每一行
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
                 int temp = matrix[i][j];
-                matrix[i][j] = matrix[i][length - j - 1];
-                matrix[i][length - j - 1] = temp;
+                matrix[i][j] = matrix[i][n - j - 1];
+                matrix[i][n - j - 1] = temp;
             }
         }
     }
@@ -73,16 +75,14 @@ public class RotaImage {
         int length = matrix.length;
         for (int i = 0; i < (length + 1) / 2; i++) {
             for (int j = 0; j < length / 2; j++) {
-
                 int temp = matrix[i][j];
-
+                // 将上一个位置的元素填入
                 matrix[i][j] = matrix[length - j - 1][i];
                 matrix[length - j - 1][i] = matrix[length - i - 1][length - j - 1];
                 matrix[length - i - 1][length - j - 1] = matrix[j][length - i - 1];
                 matrix[j][length - i - 1] = temp;
 
             }
-
         }
     }
 
@@ -106,8 +106,6 @@ public class RotaImage {
         rotaImage.printImage(image1);
         rotaImage.rotate3(image2);
         rotaImage.printImage(image2);
-
-
     }
 
 

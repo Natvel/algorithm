@@ -14,10 +14,8 @@ public class FindDuplicateNumber {
     /**
      * 方法一 使用hash保存每个数出现的次数
      */
-
     public int findDuplicate(int[] nums) {
         Map<Integer, Integer> hashMap = Maps.newHashMap();
-
         // 遍历所有元素,统计count值
         for (int num : nums) {
             if (hashMap.containsKey(num)) {
@@ -34,7 +32,6 @@ public class FindDuplicateNumber {
             if (nums[i] == nums[i - 1]) {
                 return nums[i];
             }
-
         }
         return -1;
     }
