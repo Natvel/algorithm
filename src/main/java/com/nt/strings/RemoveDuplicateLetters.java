@@ -1,8 +1,12 @@
 package com.nt.strings;
 
 
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -11,7 +15,9 @@ import java.util.Stack;
  */
 public class RemoveDuplicateLetters {
 
-    // 方法一 暴力法 贪心策略
+    /**
+     * 方法一 暴力法 贪心策略
+     */
     public String removeDuplicateLetters(String s) {
         // 递归的基准情形
         if (s.length() == 0) {
@@ -32,16 +38,17 @@ public class RemoveDuplicateLetters {
                 for (int j = position; j < i; j++) {
 
                     // 定义一个布尔变量,判断是否在i后面重复出现
+                    boolean isDuplaceable = true;
                     // 遍历i后面所有字母,看j位置的字母是否重复出现
                     for (int k = i + 1; k < s.length(); k++) {
 
                         if (s.charAt(k) == s.charAt(j)) {
-                            isReplaceable = true;
+                            isDuplaceable = true;
                             break;
                         }
                     }
                     // 如果任一字母不重复出现,就不能替换当前position,后面的字母不用判断
-                    if (!isReplaceable) {
+                    if (!isDuplaceable) {
                         isReplaceable = false;
                         break;
                     }
@@ -56,8 +63,6 @@ public class RemoveDuplicateLetters {
     }
 
     // 方法二:贪心策略改进
-
-
     public String removeDuplicateLetters2(String s) {
 
         // 递归的基准情形
@@ -85,23 +90,25 @@ public class RemoveDuplicateLetters {
             if (--count[s.charAt(i) - 'a'] == 0) {
                 break;
             }
-
-
         }
         // 递归调用
         // 循环结束,position位置的字母就是结束结果中最左元素
         return s.charAt(position) + removeDuplicateLetters2(s.substring(position + 1).replaceAll(s.charAt(position) + "", ""));
     }
 
-    // 方法三:使用栈进行优化
+    /**
+     * 使用栈进行优化
+     * @param s
+     * @return
+     */
     public String removeDuplicateLetters3(String s) {
         // 定义一个字符栈,保存去重之后的结果
         Stack<Character> stack = new Stack<>();
-        // 为了快速判断一个字符是否存在栈中出现过,用一个set来保存元素是否出现
-        HashSet<Character> seeSet = new HashSet<>();
+        // 为了快速判断一个字符是否存在栈中出现过,   用一个set来保存元素是否出现
+        Set<Character> seeSet = Sets.newHashSet();
 
         // 为了快速判断一个字符是否出现在某个位置之后重复出现,用一个hashMap来保存字母出现在字符串的最后位置
-        HashMap<Character, Integer> lastOccur = new HashMap<>();
+        HashMap<Character, Integer> lastOccur = Maps.newHashMap();
 
         // 遍历字符串,将最后一次出现的位置保存进map
         for (int i = 0; i < s.length(); i++) {
@@ -109,7 +116,6 @@ public class RemoveDuplicateLetters {
         }
         // 遍历字符串,判断每个字符串是否需要入栈
         for (int i = 0; i < s.length(); i++) {
-
             char c = s.charAt(i);
             if (!seeSet.contains(c)) {
                 // c入栈之前,要判断之前栈元素,是否在后面会重复出现,如果重复出现可以剔除
@@ -119,7 +125,6 @@ public class RemoveDuplicateLetters {
                 stack.push(c);
                 seeSet.add(c);
             }
-
         }
         // 将栈中的元素保存成字符串输出
         StringBuilder builder = new StringBuilder();

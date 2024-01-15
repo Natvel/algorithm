@@ -12,7 +12,6 @@ public class MultiplyStrings {
         if (num1.equals("0") || num2.equals("0")) {
             return "0";
         }
-
         // 定义输出结果,直接定义String,调用字符串相加方法
         String builder = new String();
         // 遍历num2的每一位
@@ -30,10 +29,8 @@ public class MultiplyStrings {
 
             // 1. 因为结果是倒序,所以当前n2对应数位要补的0,应该先写入curResult
             for (int j = 0; j < num2.length() - 1 - i; j++) {
-
                 cunResult.append("0");
             }
-
             for (int j = num1.length() - 1; j >= 0; j--) {
                 // 取出num2的当前数位,作为当前乘法的第二个乘数
                 int n1 = num1.charAt(j) - '0';
@@ -66,9 +63,7 @@ public class MultiplyStrings {
         int[] resultArray = new int[num1.length() + num2.length()];
 
         // 遍历num1和num2的每个数位,做乘积,然后找到对应数位,填入结果数组
-
         for (int length = num1.length(); length > 0; length--) {
-
             int n1 = num1.charAt(length) - '0';
             for (int j = num2.length(); j > 0; j--) {
                 int n2 = num2.charAt(j) - '0';

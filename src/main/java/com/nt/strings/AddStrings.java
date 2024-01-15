@@ -10,7 +10,6 @@ public class AddStrings {
         StringBuilder buffer = new StringBuilder();
 
         // 定义遍历两个字符串的初始位置
-
         int i = nums1.length() - 1;
         int j = nums2.length() - 1;
 
