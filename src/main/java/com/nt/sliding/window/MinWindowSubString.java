@@ -168,7 +168,7 @@ public class MinWindowSubString {
             Integer count = hashMap.getOrDefault(c, 0);
             hashMap.put(c, count + 1);
         }
-        int start = 0, end = 1;
+        int start = 0, end = 1 ;
         Map<Character,Integer> subStrCharFrequency = Maps.newHashMap();
 
         // 定义一个子串贡献值 统计t中的
