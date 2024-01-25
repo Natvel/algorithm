@@ -80,7 +80,7 @@ public class FindAllAnagarms {
 
             subStrChatCounts[newChar - 'a']++;
             // 3. 判断当前子串是否符合要求
-            while (subStrChatCounts[newChar - 'a']  > pCharCounts[newChar - 'a'] && start < end){
+            while (subStrChatCounts[newChar - 'a']   > pCharCounts[newChar - 'a'] && start < end){
                 char removeChar = s.charAt(start);
                 subStrChatCounts[removeChar - 'a']--;
                 start++;
