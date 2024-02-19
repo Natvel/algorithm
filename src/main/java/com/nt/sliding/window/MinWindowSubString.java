@@ -194,7 +194,7 @@ public class MinWindowSubString {
                 if (hashMap.containsKey(removeChar)){
                     subStrCharFrequency.put(removeChar, subStrCharFrequency.getOrDefault(removeChar, 0) - 1);
                     //  如果子串中的频次不够t中频次 贡献值减少
-                    if (subStrCharFrequency.get(removeChar) < hashMap.get(removeChar)){
+                     if (subStrCharFrequency.get(removeChar) < hashMap.get(removeChar)){
                         charCount--;
                     }
                 }
