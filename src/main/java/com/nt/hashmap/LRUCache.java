@@ -9,7 +9,7 @@ import java.util.HashMap;
  * @date : 2024/2/18
  * 自定义实现hashmao+双向链表的缓存机制
  */
-public class LRUCache {
+public class  LRUCache {
     class Node {
         int key;
         int value;
