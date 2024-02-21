@@ -1,11 +1,8 @@
-package com.nt.stack_queue;
+package com.nt.stack.queue;
 
 import com.google.common.collect.Lists;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author Enzo
