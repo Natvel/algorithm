@@ -204,12 +204,23 @@ public class LargestRectangleInHistorgram {
             lefts[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(i);
         }
-         // 遍历所有柱子 计算面积
+        // 遍历所有柱子 计算面积
         for (int i = 0; i < n; i++) {
             int currArea = (rights[i] - lefts[i] - 1) * heights[i];
             largestArea = Math.max(currArea, largestArea);
         }
         return largestArea;
+    }
+
+
+    public int maxArea(int[] height) {
+        int i = 0, j = height.length - 1, res = 0;
+        while (i < j) {
+            res = height[i] < height[j]
+                    ? Math.max(res, (j - i) * height[i++])
+                            : Math.max(res, (j - i) * height[j--]);
+        }
+        return res;
     }
 
     public static void main(String[] args) {
