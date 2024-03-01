@@ -67,7 +67,7 @@ public class LongConsecutiveSequence {
 
     /**
      * 利用hash表改进
-     *
+      *
      * @param nums
      * @return
      */
