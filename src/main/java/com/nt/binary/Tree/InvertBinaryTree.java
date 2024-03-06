@@ -40,7 +40,7 @@ public class InvertBinaryTree {
         TreeNode right = invertTree1(node.right);
 
         node.left = right;
-        node.right = left;
+        node.right = left ;
         return node;
     }
 
