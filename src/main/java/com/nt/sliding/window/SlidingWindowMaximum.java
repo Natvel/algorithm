@@ -2,7 +2,6 @@ package com.nt.sliding.window;
 
 import java.util.ArrayDeque;
 import java.util.PriorityQueue;
-import java.util.jar.JarEntry;
 
 /**
  * @author Enzo
@@ -47,7 +46,7 @@ public class SlidingWindowMaximum {
 
         // 用优先队列实现一个大顶堆
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, (o1, o2) -> o2 - o1);
-        // 准备工作,构建大顶堆,将第一个窗口元素前   k个放入堆中
+        // 准备工作,构建大顶堆,将第一个窗口元素前k个放入堆中
         for (int i = 0; i < k; i++) {
             maxHeap.add(nums[i]);
         }
@@ -69,8 +68,6 @@ public class SlidingWindowMaximum {
 
         // 定义一个结果数组
         int[] result = new int[nums.length - k + 1];
-
-
         // 定义双向队列
         ArrayDeque<Integer> deque = new ArrayDeque<>();
 
@@ -81,14 +78,12 @@ public class SlidingWindowMaximum {
                 deque.removeLast();
             }
             deque.addLast(i);
-
         }
         result[0] = nums[deque.getFirst()];
 
         //
         for (int i = k; i < nums.length; i++) {
             // 判断如果上一个窗口删掉的是窗口最大值 那么需要将队列汇总的最大值删掉
-
             if (!deque.isEmpty() && deque.getFirst() == i - k) {
                 deque.removeFirst();
             }
@@ -96,10 +91,8 @@ public class SlidingWindowMaximum {
                 deque.removeLast();
             }
             deque.addLast(i);
-
             // 保存结果
             result[i - k + 1] = nums[deque.getFirst()];
-
         }
         return result;
     }
@@ -112,10 +105,8 @@ public class SlidingWindowMaximum {
         // 定义存放块内最大值得left和right数组
         int[] left = new int[n];
         int[] right = new int[n];
-
         // 遍历数组 左右扫描
         for (int i = 0; i < n; i++) {
-
             // 1. 从左到右
             if (i % k == 0) {
                 // 如果能整除k 就是块的起始位置
@@ -124,16 +115,14 @@ public class SlidingWindowMaximum {
                 // 如果不是起始位置 就直接取left[i-1]最大值即可
                 left[i] = Math.max(left[i - 1], nums[i]);
             }
-
             // 2.从右到左
             int j = n - 1 - i;
             if (j % k == k - 1 || j == n - 1) {
                 right[j] = nums[j];
             } else {
-                right[j] =  Math.max(right[j + 1], nums[j]);
+                right[j] = Math.max(right[j + 1], nums[j]);
             }
         }
-
         // 对每个窗口计算最大值
         for (int i = 0; i < n - k + 1; i++) {
             result[i] = Math.max(right[i], left[i + k - 1]);

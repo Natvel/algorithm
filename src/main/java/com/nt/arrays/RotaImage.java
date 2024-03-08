@@ -5,7 +5,10 @@ package com.nt.arrays;
  * @date : 2023/6/27
  */
 public class RotaImage {
-    // 方法一 数学方法 矩阵转置 再翻转每一行
+    /**
+     *  方法一 数学方法 矩阵转置 再翻转每一行
+     * @param matrix
+     */
     public void rotate(int[][] matrix){
 
         int n = matrix.length;

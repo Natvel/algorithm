@@ -1,7 +1,5 @@
 package com.nt.hashmap;
 
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-
 import java.util.HashMap;
 
 /**
@@ -103,7 +101,7 @@ public class  LRUCache {
     }
     private void addToTail(Node node){
         node.next = tail;
-        // 以原先的末尾节点作为钱一个节点
+        // 以原先的末尾节点作为一个节点
         node.prev = tail.prev;
         tail.prev.next = node;
         tail.prev = node;

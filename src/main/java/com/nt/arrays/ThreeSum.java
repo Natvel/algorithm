@@ -75,7 +75,11 @@ public class ThreeSum {
         return result;
     }
 
-    // 方法三 双指针发
+    /**
+     * 双指针法
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum3(int[] nums) {
         int length = nums.length;
         List<List<Integer>> list = Lists.newArrayList();

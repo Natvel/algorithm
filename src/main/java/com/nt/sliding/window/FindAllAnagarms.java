@@ -35,7 +35,6 @@ public class FindAllAnagarms {
 
             // 定义一个数组 统计子串中所有字符频次
             int[] subCharCounts = new int[26];
-
             for (int j = i; j < i + p.length(); j++) {
                 subCharCounts[s.charAt(j) - 'a']++;
                 if (subCharCounts[s.charAt(j) - 'a'] > pCharCounts[s.charAt(j) - 'a']) {
@@ -58,7 +57,6 @@ public class FindAllAnagarms {
      */
     public List<Integer> findAnagrams2(String s,String p){
 
-
         // 定义一个结果列表
         List< Integer> result = Lists.newArrayList();
 
@@ -77,7 +75,6 @@ public class FindAllAnagarms {
         while (end <= s.length()){
             // 当前新增字符
             char newChar = s.charAt(end - 1);
-
             subStrChatCounts[newChar - 'a']++;
             // 3. 判断当前子串是否符合要求
             while (subStrChatCounts[newChar - 'a']   > pCharCounts[newChar - 'a'] && start < end){

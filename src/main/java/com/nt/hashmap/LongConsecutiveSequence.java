@@ -49,7 +49,6 @@ public class LongConsecutiveSequence {
             hashSet.add(num);
         }
         for (int num : nums) {
-
             // 保存当前元素作为起始点
             int currNum = num;
             // 保存当前连续序列长度

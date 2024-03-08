@@ -62,7 +62,11 @@ public class RemoveDuplicateLetters {
         return s.charAt(position) + removeDuplicateLetters(s.substring(position + 1).replaceAll(s.charAt(position) + "", ""));
     }
 
-    // 方法二:贪心策略改进
+    /**
+     * 方法二:贪心策略改进
+     * @param s
+     * @return
+     */
     public String removeDuplicateLetters2(String s) {
 
         // 递归的基准情形

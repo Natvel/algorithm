@@ -5,7 +5,12 @@ package com.nt.strings;
  * @date : 2023/7/13
  */
 public class MultiplyStrings {
-    // 方法一: 基于字符串相加的竖式乘法
+    /**
+     * 方法一: 基于字符串相加的竖式乘法
+     * @param num1
+     * @param num2
+     * @return
+     */
     public String multiply(String num1, String num2) {
 
         // 处理特殊情况 有一个乘积为0,结果就为0
@@ -52,7 +57,12 @@ public class MultiplyStrings {
         return builder;
     }
 
-    // 方法二: 竖式乘法优化
+    /**
+     * 方法二: 竖式乘法优化
+     * @param num1
+     * @param num2
+     * @return
+     */
     public String multiply2(String num1, String num2) {
 
         // 处理特殊情况 有一个乘积为0,结果就为0
