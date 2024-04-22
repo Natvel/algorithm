@@ -93,6 +93,8 @@ public class QuickSort {
         qSort(nums, 0, nums.length - 1);
 
         printArray(nums);
+
+        System.out.println("bd-ps0305".hashCode() % 16);
     }
 
     public static void printArray(int[] arr) {
