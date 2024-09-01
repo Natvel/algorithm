@@ -17,7 +17,6 @@ public class MergeTwoSortedLists {
         // 迭代遍历两个链表 直到至少有一个为null
         while (l1 != null && l2 != null) {
             // 比较当前两个链表的头节点 较小的那个就接在结果链表末尾
-
             if (l1.val <= l2.val) {
                 // 将l1头节点连接到prev后面
                 prev.next = l1;

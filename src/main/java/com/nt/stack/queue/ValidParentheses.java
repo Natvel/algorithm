@@ -32,7 +32,7 @@ public class ValidParentheses {
                 stack.push('}');
             } else {
                 // 如果是右边括号 弹栈判断是否匹配
-                if (stack.isEmpty() || stack.pop() != ch) {
+                if (stack.isEmpty() || stack.pop() !=   ch) {
                     return false;
                 }
             }
@@ -48,5 +48,6 @@ public class ValidParentheses {
         System.out.println(validParentheses.isValid("(]"));
         System.out.println(validParentheses.isValid("([)]"));
         System.out.println(validParentheses.isValid("{[]}"));
+
     }
 }

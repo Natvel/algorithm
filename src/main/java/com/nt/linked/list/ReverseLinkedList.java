@@ -17,6 +17,7 @@ public class ReverseLinkedList {
 
         // 依次迭代链表中的节点 将next指针指向prev
         while (curr != null) {
+            // 保存
             ListNode nextNode = curr.next;
             curr.next = prev;
             // 更新指针 当前指针变为之前的next 上一个指针变为curr
