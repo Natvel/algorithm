@@ -15,7 +15,7 @@ public class TreePrinter {
     public static void  printTreePreOrder(TreeNode root){
 
         // 处理基准情形
-        if (root == null) return;
+         if (root == null) return;
 
         System.out.println(root.val + "\t");
         // 打印左子树
